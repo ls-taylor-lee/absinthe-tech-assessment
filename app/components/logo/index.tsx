@@ -1,0 +1,18 @@
+import classNames from "classnames";
+
+export default function Logo() {
+  const mainClass = classNames(
+    "text-base font-medium",
+    "mr-8 p-px rounded-lg border-image-gradient",
+    "bg-gradient-to-r from-success/10 to-white/10",
+    "dark:from-success-dark/10 dark:to-white/10"
+  );
+
+  return (
+    <div className={mainClass}>
+      <div className="bg-el dark:bg-el-dark rounded-lg">
+        <div className="bg-white/5 rounded-lg px-12 py-1">Logo</div>
+      </div>
+    </div>
+  );
+}
