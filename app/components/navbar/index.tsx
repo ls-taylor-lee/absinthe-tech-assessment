@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import NavLink from "./navlink";
 import Logo from "../logo";
 import classNames from "classnames";
+import Image from "next/image";
 
 export default function Navbar() {
   const navLinks = useMemo(() => {
@@ -23,7 +24,9 @@ export default function Navbar() {
           "hidden lg:block",
           "bg-el-2 dark:bg-el-2-dark",
           "px-4 py-2",
-          "border rounded-full border-primary-hover"
+          "border rounded-full border-main-hover dark:border-main-hover-dark",
+          "text-sm font-semibold text-secondary dark:text-secondary-dark",
+          "cursor-pointer"
         )}
       >
         How It Works
@@ -32,7 +35,23 @@ export default function Navbar() {
   };
 
   const Account = () => {
-    return <div className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Windi.eth</div>;
+    const accountName = "Windi.eth";
+
+    return (
+      <div
+        className={classNames(
+          "bg-el-3 dark:bg-el-3-dark",
+          "hover:bg-el-3/70 hover:dark:bg-el-3-dark/70",
+          "px-4 py-2 rounded-lg",
+          "text-sm font-semibold text-primary dark:text-primary-dark",
+          "cursor-pointer",
+          "flex items-center"
+        )}
+      >
+        <Image src="/images/profile_logo.jpg" alt="PL" width={18} height={18} className="rounded-full mr-2" />
+        <p>{accountName}</p>
+      </div>
+    );
   };
 
   const HambugerMenu = () => {
