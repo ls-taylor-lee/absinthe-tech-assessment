@@ -72,6 +72,9 @@ const config: Config = {
         "13": ".13",
         "8": ".08",
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
     },
   },
   plugins: [],

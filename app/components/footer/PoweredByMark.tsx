@@ -4,7 +4,6 @@ import React from "react";
 
 export default function PoweredByMark() {
   const mainClass = classNames(
-    "font-semibold",
     "p-px rounded-lg",
     "bg:transparent lg:bg-gradient-to-r from-main/15 to-main-alt/15",
     "dark:from-main-dark/15 dark:to-main-alt-dark/15"
@@ -20,7 +19,7 @@ export default function PoweredByMark() {
         )}
       >
         <div className="bg-transparent lg:bg-white/5 rounded-lg px-2 flex items-center">
-          <span>Powered By</span>
+          <span>Powered by</span>
           <Image src="/images/absinthe.svg" width={120} height={32} alt="ABL" className="dark:hidden" />
           <Image src="/images/absinthe-dark.svg" width={120} height={32} alt="ABL" className="hidden dark:block" />
         </div>

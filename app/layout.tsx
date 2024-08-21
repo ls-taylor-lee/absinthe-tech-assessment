@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "min-h-screen",
     "flex flex-col justify-between",
     "bg-el dark:bg-el-dark",
-    "text-primary dark:text-primary-dark text-sm"
+    "text-primary dark:text-primary-dark text-sm font-inter"
   );
 
   return (
