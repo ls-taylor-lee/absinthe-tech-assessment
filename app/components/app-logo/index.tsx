@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-export default function Logo() {
+export default function AppLogo() {
   const mainClass = classNames(
     "text-base font-medium",
     "mr-8 p-px rounded-lg",

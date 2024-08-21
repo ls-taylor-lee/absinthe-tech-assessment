@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import SocialLink from "./SocialLink";
 import PoweredByMark from "./PoweredByMark";
-import Logo from "../Logo";
+import Logo from "../app-logo";
 import Link from "next/link";
 
 export default function Footer() {

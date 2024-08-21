@@ -75,6 +75,15 @@ const config: Config = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
+      keyframes: {
+        highlight: {
+          "0%": { backgroundColor: "#8AB7B2" }, // Light yellow
+          "100%": { backgroundColor: "transparent" },
+        },
+      },
+      animation: {
+        highlight: "highlight 2s ease-in-out",
+      },
     },
   },
   plugins: [],

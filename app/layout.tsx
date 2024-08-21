@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 
-import Navbar from "./components/NavBar";
-import Footer from "./components/Footer";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 import classNames from "classnames";
 
 import "./globals.scss";
+import { ApolloWrapper } from "./ApolloWrapper";
 
 export const metadata: Metadata = {
   title: "Absinthe Dashboard",
@@ -21,15 +22,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className="dark">
-      <body>
-        <main>
-          <section className={bodyClass}>
-            <Navbar />
-            <div className="flex-grow px-8 lg:px-28 py-8">{children}</div>
-            <Footer />
-          </section>
-        </main>
-      </body>
+      <ApolloWrapper>
+        <body>
+          <main>
+            <section className={bodyClass}>
+              <Navbar />
+              <div className="flex-grow px-8 lg:px-28 py-8">{children}</div>
+              <Footer />
+            </section>
+          </main>
+        </body>
+      </ApolloWrapper>
     </html>
   );
 }

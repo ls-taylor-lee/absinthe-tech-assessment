@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import Logo from "../Logo";
+import AppLogo from "../app-logo";
 import classNames from "classnames";
 import Image from "next/image";
 import NavLink from "./NavLink";
@@ -35,7 +35,7 @@ export default function Navbar() {
   };
 
   const Account = () => {
-    const accountName = "Windi.eth";
+    const accountName = "Fox.eth";
 
     return (
       <div
@@ -48,7 +48,13 @@ export default function Navbar() {
           "flex items-center"
         )}
       >
-        <Image src="/images/profile_logo.jpg" alt="PL" width={18} height={18} className="rounded-full mr-2" />
+        <Image
+          src="/images/profile_logo.jpg"
+          alt="PL"
+          width={18}
+          height={18}
+          className={classNames("rounded-full mr-2")}
+        />
         <p>{accountName}</p>
       </div>
     );
@@ -82,7 +88,7 @@ export default function Navbar() {
           "lg:bg-el lg:dark:bg-el-dark"
         )}
       >
-        <Logo />
+        <AppLogo />
         <div className="hidden lg:flex space-x-2 mx-auto flex-grow">{navLinks}</div>
         <div className="flex space-x-2">
           <HowItWorks />
@@ -91,16 +97,18 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div
-        className={classNames(
-          "lg:hidden flex flex-wrap items-center",
-          "mx-4 mt-6 px-2 py-2 spacing-x-8",
-          "bg-el-2 dark:bg-el-2-dark",
-          "lg:bg-el lg:dark:bg-el-dark",
-          "rounded-3xl"
-        )}
-      >
-        {navLinks}
+      <div className={classNames("px-4 pt-6 space-x-8", "bg-el dark:bg-el-dark")}>
+        <div
+          className={classNames(
+            "lg:hidden flex flex-wrap items-center",
+            "bg-el-2 dark:bg-el-2-dark",
+            "px-2 py-2",
+            "lg:bg-el lg:dark:bg-el-dark",
+            "rounded-3xl"
+          )}
+        >
+          {navLinks}
+        </div>
       </div>
     </div>
   );
