@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import Logo from "../logo";
 import classNames from "classnames";
 import Image from "next/image";
-import NavLink from "./NavLink";
+import NavLink from "./nav_link";
 
 export default function Navbar() {
   const navLinks = useMemo(() => {
@@ -21,7 +21,7 @@ export default function Navbar() {
     return (
       <div
         className={classNames(
-          "hidden lg:block",
+          "hidden xl:block",
           "bg-el-2 dark:bg-el-2-dark",
           "px-4 py-2",
           "border rounded-full border-main-hover dark:border-main-hover-dark",
@@ -56,10 +56,10 @@ export default function Navbar() {
 
   const HamburgerMenu = () => {
     return (
-      <div className="lg:hidden flex items-center">
+      <div className="xl:hidden flex items-center">
         <button id="mobile-menu-button" className="text-gray-200 focus:outline-none">
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 text-black dark:text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className={classNames("sticky top-0 w-full")}>
+    <div className={classNames("sticky top-0 w-full lg:border-b border-el-3 dark:border-el-3-dark")}>
       <div
         className={classNames(
           "flex items-center justify-between",
@@ -91,7 +91,17 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="lg:hidden flex px-8 py-4 flex-wrap bg-el dark:bg-el-dark">{navLinks}</div>
+      <div
+        className={classNames(
+          "lg:hidden flex flex-wrap items-center",
+          "mx-4 mt-6 px-2 py-2 spacing-x-8",
+          "bg-el-2 dark:bg-el-2-dark",
+          "lg:bg-el lg:dark:bg-el-dark",
+          "rounded-3xl"
+        )}
+      >
+        {navLinks}
+      </div>
     </div>
   );
 }

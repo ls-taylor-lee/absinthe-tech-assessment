@@ -66,7 +66,7 @@ const config: Config = {
         },
       },
       screens: {
-        lg: "1080px",
+        lg: "1048px",
       },
       opacity: {
         "13": ".13",

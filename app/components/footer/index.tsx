@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
-import SocialLink from "./SocialLink";
-import PoweredByMark from "./PoweredByMark";
+import SocialLink from "./social_link";
+import PoweredByMark from "./powered_by_mark";
 import Logo from "../logo";
 import Link from "next/link";
 
