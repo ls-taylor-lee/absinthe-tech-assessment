@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import NavLink from "./navlink";
 import Logo from "../logo";
 import classNames from "classnames";
 import Image from "next/image";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   const navLinks = useMemo(() => {
@@ -54,7 +54,7 @@ export default function Navbar() {
     );
   };
 
-  const HambugerMenu = () => {
+  const HamburgerMenu = () => {
     return (
       <div className="lg:hidden flex items-center">
         <button id="mobile-menu-button" className="text-gray-200 focus:outline-none">
@@ -87,11 +87,11 @@ export default function Navbar() {
         <div className="flex space-x-2">
           <HowItWorks />
           <Account />
-          <HambugerMenu />
+          <HamburgerMenu />
         </div>
       </div>
 
-      <div className="lg:hidden flex px-8 py-4 flex-wrap">{navLinks}</div>
+      <div className="lg:hidden flex px-8 py-4 flex-wrap bg-el dark:bg-el-dark">{navLinks}</div>
     </div>
   );
 }

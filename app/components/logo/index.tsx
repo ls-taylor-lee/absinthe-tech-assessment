@@ -3,7 +3,7 @@ import classNames from "classnames";
 export default function Logo() {
   const mainClass = classNames(
     "text-base font-medium",
-    "mr-8 p-px rounded-lg border-image-gradient",
+    "mr-8 p-px rounded-lg",
     "bg-gradient-to-r from-success/10 to-white/10",
     "dark:from-success-dark/10 dark:to-white/10"
   );

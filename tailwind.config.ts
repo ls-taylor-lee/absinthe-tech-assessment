@@ -55,6 +55,10 @@ const config: Config = {
             DEFAULT: "#3E8F77",
             dark: "#8AB7B2",
           },
+          alt: {
+            DEFAULT: "#CFE900",
+            dark: "#CFE900",
+          },
         },
         success: {
           DEFAULT: "#28A745",
@@ -63,6 +67,10 @@ const config: Config = {
       },
       screens: {
         lg: "1080px",
+      },
+      opacity: {
+        "13": ".13",
+        "8": ".08",
       },
     },
   },
