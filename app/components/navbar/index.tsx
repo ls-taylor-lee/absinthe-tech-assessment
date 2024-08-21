@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import Logo from "../logo";
+import Logo from "../Logo";
 import classNames from "classnames";
 import Image from "next/image";
-import NavLink from "./nav_link";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   const navLinks = useMemo(() => {
