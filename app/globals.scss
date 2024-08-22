@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* styles/globals.css */
+$bar-width: 3px;
+$scroll-back-dark: #16181a;
+$scroll-back: #e8e8e8;
+
+$scroll-thumb-dark: #111315;
+$scroll-thumb: #16181a;
+
+@layer utilities {
+  .custom-scrollbar-dark::-webkit-scrollbar {
+    width: $bar-width;
+    height: $bar-width;
+  }
+
+  .custom-scrollbar-dark::-webkit-scrollbar-track {
+    background: $scroll-back-dark;
+  }
+
+  .custom-scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: $scroll-thumb-dark;
+    border-radius: 1px;
+    border: 2px solid $scroll-thumb-dark;
+  }
+
+  .custom-scrollbar-dark::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: $bar-width;
+    height: $bar-width;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: $scroll-back;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: $scroll-thumb;
+    border-radius: 1px;
+    border: 2px solid $scroll-thumb;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-button {
+    display: none;
+  }
+}
