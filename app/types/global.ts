@@ -19,7 +19,7 @@ export type IAbsTableProps = { children?: any; optionalClass?: string; style?: a
 
 export type IMiniBadge = {
   children?: any;
-  type: "success" | "secondary";
+  type: "success" | "secondary" | "disabled";
   pointer?: boolean;
 };
 
@@ -37,6 +37,8 @@ export type IAbsButton = {
 export type ICarousel = {
   items: any[];
   itemRenderer: (item: any, active?: boolean) => JSX.Element | null;
+  showDetail?: boolean;
+  detailRenderer?: (item: any) => JSX.Element | null;
 };
 
 export type IBadgeAction = {
@@ -53,8 +55,8 @@ export type IBadge = {
   icon: string;
 };
 
-export type IBadgeRendererProps = {
-  item: IBadge;
+export type IBadgeActionsProps = {
+  badge: IBadge;
 };
 
 export type ISingleBadgeProps = {
@@ -63,4 +65,8 @@ export type ISingleBadgeProps = {
   markComplete?: boolean;
   optionalClass?: string;
   isActive?: boolean;
+};
+
+export type ISingleActionProps = {
+  action: IBadgeAction;
 };

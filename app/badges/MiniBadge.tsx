@@ -11,6 +11,8 @@ export default function MiniBadge({ children, type, pointer }: IMiniBadge) {
         return `bg-success/10 dark:bg-success-dark/10 text-success dark:text-success-dark`;
       case "secondary":
         return `bg-el-3 dark:bg-el-3-dark text-secondary dark:text-secondary-dark`;
+      case "disabled":
+        return `bg-main/20 dark:bg-main-dark/20 text-main-hover dark:text-main-hover-dark`;
       default:
     }
   };

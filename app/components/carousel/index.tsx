@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "../icons/svgs";
 import { AbsButton } from "../button";
 import { ICarousel } from "../../types/global";
 
-const Carousel = ({ items, itemRenderer }: ICarousel) => {
+const Carousel = ({ items, itemRenderer, showDetail = false, detailRenderer }: ICarousel) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentWidth, setCurrentWidth] = useState(0);
   const carouselRef = useRef(null);
@@ -55,36 +55,39 @@ const Carousel = ({ items, itemRenderer }: ICarousel) => {
   };
 
   return (
-    <div className="flex space-x-4">
-      <AbsButton optionalClass={classNames("w-12 h-64", "flex justify-center items-center")} handler={handlePrev}>
-        {ChevronLeft}
-      </AbsButton>
+    <div>
+      <div className="flex space-x-4">
+        <AbsButton optionalClass={classNames("w-12 h-64", "flex justify-center items-center")} handler={handlePrev}>
+          {ChevronLeft}
+        </AbsButton>
 
-      <div className="relative w-full overflow-hidden" ref={carouselRef}>
-        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: translateX }}>
-          {items.map((item, index) => {
-            const isActive = index === currentIndex;
-            const scaleValue = getScaleValue(Math.abs(index - currentIndex));
-            const itemClass = classNames(
-              "flex items-center",
-              "w-44 h-64 flex-shrink-0 cursor-pointer transition-transform duration-500 ease-in-out",
-              {
-                "animate-pulse blur-md": currentWidth === 0,
-              },
-              isActive ? "scale-100" : scaleValue
-            );
+        <div className="relative w-full overflow-hidden" ref={carouselRef}>
+          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: translateX }}>
+            {items.map((item, index) => {
+              const isActive = index === currentIndex;
+              const scaleValue = getScaleValue(Math.abs(index - currentIndex));
+              const itemClass = classNames(
+                "flex items-center",
+                "w-44 h-64 flex-shrink-0 cursor-pointer transition-transform duration-500 ease-in-out",
+                {
+                  "animate-pulse blur-md": currentWidth === 0,
+                },
+                isActive ? "scale-100" : scaleValue
+              );
 
-            return (
-              <div key={index} className={itemClass} onClick={() => setCurrentIndex(index)}>
-                {itemRenderer(item, isActive)}
-              </div>
-            );
-          })}
+              return (
+                <div key={index} className={itemClass} onClick={() => setCurrentIndex(index)}>
+                  {itemRenderer(item, isActive)}
+                </div>
+              );
+            })}
+          </div>
         </div>
+        <AbsButton optionalClass={classNames("w-12 h-64", "flex justify-center items-center")} handler={handleNext}>
+          {ChevronRight}
+        </AbsButton>
       </div>
-      <AbsButton optionalClass={classNames("w-12 h-64", "flex justify-center items-center")} handler={handleNext}>
-        {ChevronRight}
-      </AbsButton>
+      <div className="mt-4">{showDetail && detailRenderer(items[currentIndex])}</div>
     </div>
   );
 };
