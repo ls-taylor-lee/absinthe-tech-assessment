@@ -22,3 +22,43 @@ export type IMiniBadge = {
   type: "success" | "secondary";
   pointer?: boolean;
 };
+
+export type ISectionTitle = {
+  children?: any;
+};
+
+export type IAbsButton = {
+  handler?: (e) => void;
+  optionalClass?: string;
+  children?: any;
+  radius?: "rounded-full" | "rounded-none" | string;
+};
+
+export type ICarousel = {
+  items: any[];
+  itemRenderer: (item: any) => JSX.Element | null;
+};
+
+export type IBadgeAction = {
+  title: string;
+  isCompleted: boolean;
+};
+
+export type IBadge = {
+  title: string;
+  actions: IBadgeAction[];
+  reward: string | number;
+  rewardDetails: string;
+  icon: string;
+};
+
+export type IBadgeRendererProps = {
+  item: IBadge;
+};
+
+export type ISingleBadgeProps = {
+  badge: IBadge;
+  showDetail?: boolean;
+  markComplete?: boolean;
+  optionalClass?: string;
+};

@@ -79,7 +79,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className={classNames("sticky top-0 w-full lg:border-b border-el-3 dark:border-el-3-dark")}>
+    <div className={classNames("sticky top-0 w-full lg:border-b border-el-3 dark:border-el-3-dark z-50")}>
       <div
         className={classNames(
           "flex items-center justify-between",

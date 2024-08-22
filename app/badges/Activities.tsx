@@ -19,38 +19,41 @@ import { truncateHash } from "../utils/hash";
 import MiniBadge from "./MiniBadge";
 import moment from "moment";
 import { BiArrowSVG, ExternalLinkSVG } from "../components/icons/svgs";
+import { SectionTitle } from "../components/typography";
 
 function TableSkeletonLoader() {
-  return (
-    <AbsTableBodyRow optionalClass="animate-pulse">
-      <AbsTableBodyCell optionalClass="text-primary dark:text-primary-dark">
-        <div className="flex items-center justify-start blur-sm shadow">
-          {BiArrowSVG}
-          <span>Transaction</span>
-        </div>
-      </AbsTableBodyCell>
-      <AbsTableBodyCell>
-        <div className="blur-sm shadow">
-          <MiniBadge type="success">000000000</MiniBadge>
-        </div>
-      </AbsTableBodyCell>
-      <AbsTableBodyCell optionalClass="text-secondary dark:text-secondary-dark">
-        <div className="flex items-center justify-between w-36 blur-sm shadow">
-          <span>00.00.0000</span>
-          <MiniBadge type="secondary">00:00:00</MiniBadge>
-        </div>
-      </AbsTableBodyCell>
-      <AbsTableBodyCell optionalClass="text-secondary dark:text-secondary-dark">
-        <div className="flex items-center justify-between w-36 blur-sm shadow">
-          <span>{truncateHash("0x000000000000")}</span>
-          <MiniBadge type="secondary" pointer>
-            Copy
-          </MiniBadge>
-        </div>
-      </AbsTableBodyCell>
-      <AbsTableBodyCell optionalClass="w-14"></AbsTableBodyCell>
-    </AbsTableBodyRow>
-  );
+  return [1, 2, 3, 4, 5, 6].map((v) => {
+    return (
+      <AbsTableBodyRow key={v} optionalClass="animate-pulse">
+        <AbsTableBodyCell optionalClass="text-primary dark:text-primary-dark">
+          <div className="flex items-center justify-start blur-sm shadow">
+            {BiArrowSVG}
+            <span>Transaction</span>
+          </div>
+        </AbsTableBodyCell>
+        <AbsTableBodyCell>
+          <div className="blur-sm shadow">
+            <MiniBadge type="success">000000000</MiniBadge>
+          </div>
+        </AbsTableBodyCell>
+        <AbsTableBodyCell optionalClass="text-secondary dark:text-secondary-dark">
+          <div className="flex items-center justify-between w-36 blur-sm shadow">
+            <span>00.00.0000</span>
+            <MiniBadge type="secondary">00:00:00</MiniBadge>
+          </div>
+        </AbsTableBodyCell>
+        <AbsTableBodyCell optionalClass="text-secondary dark:text-secondary-dark">
+          <div className="flex items-center justify-between w-36 blur-sm shadow">
+            <span>{truncateHash("0x000000000000")}</span>
+            <MiniBadge type="secondary" pointer>
+              Copy
+            </MiniBadge>
+          </div>
+        </AbsTableBodyCell>
+        <AbsTableBodyCell optionalClass="w-14"></AbsTableBodyCell>
+      </AbsTableBodyRow>
+    );
+  });
 }
 
 export default function Activities() {
@@ -93,7 +96,6 @@ export default function Activities() {
 
   const List = () => {
     if (error) return <p>Error: {error.message}</p>;
-    console.log("updated", updatedActivityHashes);
 
     return (
       <div className={classNames("overflow-x-auto rounded-xl")}>
@@ -152,10 +154,8 @@ export default function Activities() {
   };
 
   return (
-    <div className={classNames("h-1/2")}>
-      <p className={classNames("text-secondary dark:text-secondary-dark", "font-medium text-base", "mb-4")}>
-        Last Activities
-      </p>
+    <div>
+      <SectionTitle>Last Activities</SectionTitle>
       <List />
     </div>
   );

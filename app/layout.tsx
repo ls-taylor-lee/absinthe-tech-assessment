@@ -5,8 +5,9 @@ import Footer from "./components/footer";
 
 import classNames from "classnames";
 
-import "./globals.scss";
 import { ApolloWrapper } from "./ApolloWrapper";
+
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Absinthe Dashboard",

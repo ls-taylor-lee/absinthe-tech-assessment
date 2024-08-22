@@ -77,7 +77,7 @@ const config: Config = {
       },
       keyframes: {
         highlight: {
-          "0%": { backgroundColor: "#8AB7B2" }, // Light yellow
+          "0%": { backgroundColor: "#8AB7B2" },
           "100%": { backgroundColor: "transparent" },
         },
       },
