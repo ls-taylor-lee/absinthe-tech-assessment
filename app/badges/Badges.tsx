@@ -4,6 +4,7 @@ import Carousel from "../components/carousel";
 import { SectionTitle } from "../components/typography";
 import { achieveBadges } from "../constants/badges";
 import { IBadge } from "../types/global";
+import CommunityBadges from "./CommunityBadges";
 import { SingleBadge } from "./SingleBadge";
 
 export default function Badges() {
@@ -15,7 +16,7 @@ export default function Badges() {
     <div className="w-full my-4">
       <SectionTitle>Badges</SectionTitle>
       <Carousel items={achieveBadges} itemRenderer={badgeRenderer} />
-      <SingleBadge badge={achieveBadges[0]} markComplete isActive />
+      <CommunityBadges />
     </div>
   );
 }

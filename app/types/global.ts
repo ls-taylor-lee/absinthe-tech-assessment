@@ -47,6 +47,7 @@ export type IBadgeAction = {
 export type IBadge = {
   title: string;
   actions: IBadgeAction[];
+  isCompleted: boolean;
   reward: string | number;
   rewardDetails: string;
   icon: string;

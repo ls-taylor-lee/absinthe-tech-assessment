@@ -9,28 +9,26 @@ export function SingleBadge({
   showDetail = false,
   isActive = false,
 }: ISingleBadgeProps) {
-  const isCompleted = useMemo(() => {
-    return badge.actions.filter((action) => !action.isCompleted).length === 0;
-  }, [badge]);
-
   if (isActive)
     return (
-      <div className={classNames("w-44 flex flex-col text-xs text-base", optionalClass)}>
+      <div className={classNames("min-w-44 w-44 flex flex-col text-xs text-base", optionalClass)}>
         <div
           className={classNames("flex flex-col rounded-xl overflow-hidden text-center", {
-            "border border-success dark:border-success-dark": markComplete && isCompleted,
+            "border border-success dark:border-success-dark": markComplete && badge.isCompleted,
           })}
         >
           <div className={classNames("bg-el-2 dark:bg-el-2-dark", "p-2", "flex justify-between")}>
-            <span>{badge.title}</span>
-            <span className="text-secondary dark:text-secondary-dark">{badge.actions.length} Actions</span>
+            <span className="truncate">{badge.title}</span>
+            {badge.actions.length > 0 && (
+              <span className="text-secondary dark:text-secondary-dark truncate">{badge.actions.length} Actions</span>
+            )}
           </div>
           <div className={classNames("bg-el-3 dark:bg-el-3-dark", "px-14 py-6")}>
             <img
               src={badge.icon}
               alt="bi"
               className={classNames("w-16 h-16 rounded-full", {
-                "border-4 border-success dark:border-success-dark": markComplete && isCompleted,
+                "border-4 border-success dark:border-success-dark": markComplete && badge.isCompleted,
               })}
             />
           </div>
@@ -65,7 +63,7 @@ export function SingleBadge({
           src={badge.icon}
           alt="bi"
           className={classNames("w-16 h-16 rounded-full", {
-            "border-4 border-success dark:border-success-dark": markComplete && isCompleted,
+            "border-4 border-success dark:border-success-dark": markComplete && badge.isCompleted,
           })}
         />
       </div>
