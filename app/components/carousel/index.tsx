@@ -7,11 +7,11 @@ import { AbsButton } from "../button";
 import { ICarousel } from "../../types/global";
 
 const Carousel = ({ items, itemRenderer }: ICarousel) => {
-  const [currentIndex, setCurrentIndex] = useState(Math.floor(items.length / 2));
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentWidth, setCurrentWidth] = useState(0);
   const carouselRef = useRef(null);
 
-  const slideWidth = 208; // Tailwind w-52 / 13rem, 208px
+  const slideWidth = 176;
 
   useEffect(() => {
     const updateSlidesToShow = () => {
@@ -36,21 +36,21 @@ const Carousel = ({ items, itemRenderer }: ICarousel) => {
   }, [currentWidth]);
 
   const translateX = useMemo(() => {
-    if (!currentWidth) return 0;
-    return -(currentIndex * slideWidth) + currentWidth / 2 - slideWidth / 2;
+    if (!currentWidth) return `translateX(calc(50% - ${slideWidth / 2}px))`;
+    return `translateX(${-(currentIndex * slideWidth) + currentWidth / 2 - slideWidth / 2}px)`;
   }, [currentIndex, slideWidth, currentWidth]);
 
   const getScaleValue = (dist) => {
     switch (dist) {
       case 1:
-        return "scale-[0.8]";
-      case 2:
         return "scale-[0.7]";
-      case 3:
+      case 2:
         return "scale-[0.6]";
+      case 3:
+        return "scale-[0.5]";
       case 4:
       default:
-        return "scale-[0.5]";
+        return "scale-[0.4]";
     }
   };
 
@@ -61,16 +61,13 @@ const Carousel = ({ items, itemRenderer }: ICarousel) => {
       </AbsButton>
 
       <div className="relative w-full overflow-hidden" ref={carouselRef}>
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(${translateX}px)` }}
-        >
+        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: translateX }}>
           {items.map((item, index) => {
             const isActive = index === currentIndex;
             const scaleValue = getScaleValue(Math.abs(index - currentIndex));
             const itemClass = classNames(
-              "border-white border",
-              "w-52 h-64 flex-shrink-0 cursor-pointer transition-transform duration-500 ease-in-out",
+              "flex items-center",
+              "w-44 h-64 flex-shrink-0 cursor-pointer transition-transform duration-500 ease-in-out",
               {
                 "animate-pulse blur-md": currentWidth === 0,
               },
@@ -79,7 +76,7 @@ const Carousel = ({ items, itemRenderer }: ICarousel) => {
 
             return (
               <div key={index} className={itemClass} onClick={() => setCurrentIndex(index)}>
-                {itemRenderer(item)}
+                {itemRenderer(item, isActive)}
               </div>
             );
           })}

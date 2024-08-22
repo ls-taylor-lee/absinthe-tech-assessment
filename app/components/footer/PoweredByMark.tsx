@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Image from "next/image";
 import React from "react";
 
 export default function PoweredByMark() {
@@ -20,8 +19,8 @@ export default function PoweredByMark() {
       >
         <div className="bg-transparent lg:bg-white/5 rounded-lg px-2 flex items-center">
           <span>Powered by</span>
-          <Image src="/images/absinthe.svg" width={120} height={32} alt="ABL" className="dark:hidden" />
-          <Image src="/images/absinthe-dark.svg" width={120} height={32} alt="ABL" className="hidden dark:block" />
+          <img src="/images/absinthe.svg" alt="ABL" className="dark:hidden w-30 h-8" />
+          <img src="/images/absinthe-dark.svg" alt="ABL" className="hidden dark:block w-30 h-8" />
         </div>
       </div>
     </div>

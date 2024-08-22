@@ -36,7 +36,7 @@ export type IAbsButton = {
 
 export type ICarousel = {
   items: any[];
-  itemRenderer: (item: any) => JSX.Element | null;
+  itemRenderer: (item: any, active?: boolean) => JSX.Element | null;
 };
 
 export type IBadgeAction = {
@@ -61,4 +61,5 @@ export type ISingleBadgeProps = {
   showDetail?: boolean;
   markComplete?: boolean;
   optionalClass?: string;
+  isActive?: boolean;
 };
