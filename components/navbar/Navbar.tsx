@@ -1,6 +1,7 @@
 import { AppLogo } from "App/components/logo";
 import classNames from "classnames";
 import { useMemo } from "react";
+import { ThemeToggleButton } from "../button";
 import NavLink from "./NavLink";
 
 export default function Navbar() {
@@ -84,6 +85,7 @@ export default function Navbar() {
         <AppLogo />
         <div className="hidden lg:flex space-x-2 mx-auto flex-grow">{navLinks}</div>
         <div className="flex space-x-2">
+          <ThemeToggleButton />
           <HowItWorks />
           <Account />
           <HamburgerMenu />
