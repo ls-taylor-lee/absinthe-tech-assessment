@@ -10,7 +10,7 @@ import { SingleBadge } from "./SingleBadge";
 
 export default function Badges() {
   const badgeRenderer = (item: IBadge, active) => {
-    return <SingleBadge badge={item} showDetail isActive={active} />;
+    return <SingleBadge badge={item} showDetail markComplete isActive={active} />;
   };
 
   const detailRenderer = (item: IBadge) => {
