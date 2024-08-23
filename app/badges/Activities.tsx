@@ -14,6 +14,7 @@ import {
   AbsTableHeaderCell,
   AbsTableHeaderRow,
 } from "App/components/table";
+import { useToast } from "App/components/toast";
 import { SectionTitle } from "App/components/typography";
 import { GET_ACTIVITIES_QUERY } from "App/graphql/queries";
 import { ACTIVITIES_SUBSCRIPTION } from "App/graphql/subscriptions";
@@ -58,6 +59,7 @@ function TableSkeletonLoader() {
 }
 
 export default function Activities() {
+  const { showToast } = useToast();
   const [activities, setActivities] = useState([]);
   const [updatedActivityHashes, setUpdatedActivityHashes] = useState([]);
 
@@ -94,6 +96,17 @@ export default function Activities() {
       }, 3000); // Adjust the delay as needed
     }
   }, [subscriptionData]);
+
+  const handleCopy = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        showToast({ message: "Copied!", duration: 1000, variant: "success" });
+      })
+      .catch((_) => {
+        showToast({ message: "Failed to copy!", duration: 1000, variant: "fail" });
+      });
+  };
 
   const List = () => {
     if (error) return <p>Error: {error.message}</p>;
@@ -139,7 +152,7 @@ export default function Activities() {
                   <AbsTableBodyCell optionalClass="text-secondary dark:text-secondary-dark">
                     <div className="flex items-center justify-between w-36">
                       <span>{truncateHash(activity.transaction_hash)}</span>
-                      <MiniBadge type="secondary" pointer>
+                      <MiniBadge type="secondary" pointer onClick={() => handleCopy(activity.transaction_hash)}>
                         Copy
                       </MiniBadge>
                     </div>

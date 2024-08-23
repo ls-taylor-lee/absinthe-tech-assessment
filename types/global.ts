@@ -21,6 +21,7 @@ export type IMiniBadge = {
   children?: any;
   type: "success" | "secondary" | "disabled";
   pointer?: boolean;
+  onClick?: (e) => void;
 };
 
 export type ISectionTitle = {
@@ -69,4 +70,17 @@ export type ISingleBadgeProps = {
 
 export type ISingleActionProps = {
   action: IBadgeAction;
+};
+
+export type IToastVariant = "success" | "fail" | "normal";
+export type IToastProps = {
+  message: string;
+  variant: IToastVariant;
+  show: boolean;
+};
+
+export type IShowToastProps = {
+  message: string;
+  variant: IToastVariant;
+  duration: number;
 };

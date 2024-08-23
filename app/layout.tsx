@@ -7,6 +7,7 @@ import classNames from "classnames";
 
 import { ApolloWrapper } from "./ApolloWrapper";
 
+import { ToastProvider } from "App/components/toast";
 import "App/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -25,13 +26,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="dark dark:custom-scrollbar-dark custom-scrollbar">
       <ApolloWrapper>
         <body>
-          <main>
-            <section className={bodyClass}>
-              <Navbar />
-              <div className="flex-grow px-8 lg:px-28 py-8">{children}</div>
-              <Footer />
-            </section>
-          </main>
+          <ToastProvider>
+            <main>
+              <section className={bodyClass}>
+                <Navbar />
+                <div className="flex-grow px-8 lg:px-28 py-8">{children}</div>
+                <Footer />
+              </section>
+            </main>
+          </ToastProvider>
         </body>
       </ApolloWrapper>
     </html>

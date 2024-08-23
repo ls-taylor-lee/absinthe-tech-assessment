@@ -3,7 +3,7 @@
 import { IMiniBadge } from "App/types/global";
 import classNames from "classnames";
 
-export default function MiniBadge({ children, type, pointer }: IMiniBadge) {
+export default function MiniBadge({ children, type, pointer, onClick = (e) => {} }: IMiniBadge) {
   const classForType = () => {
     switch (type) {
       case "success":
@@ -23,6 +23,7 @@ export default function MiniBadge({ children, type, pointer }: IMiniBadge) {
         { "cursor-pointer": pointer },
         classForType()
       )}
+      onClick={onClick}
     >
       {children}
     </div>
