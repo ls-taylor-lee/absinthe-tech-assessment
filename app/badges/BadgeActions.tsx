@@ -17,7 +17,7 @@ export default function BadgeActions({ badge }: IBadgeActionsProps) {
         <span>
           <span
             className={classNames(
-              "font-semibold text-sm",
+              "font-semibold text-sm mr-1",
               "lg:text-primary lg:dark:text-primary-dark",
               "text-secondary dark:text-secondary-dark"
             )}
