@@ -1,4 +1,4 @@
-import { IBadge } from "../types/global";
+import { IBadge } from "App/types/global";
 
 export const communityBadges: IBadge[] = [
   {

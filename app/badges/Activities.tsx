@@ -1,25 +1,26 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useQuery, useSubscription } from "@apollo/client";
-import { IActivity } from "../types/global";
-import classNames from "classnames";
-import AbsTable, {
+import { BiArrowSVG, ExternalLinkSVG } from "App/components/icons";
+import { MiniBadge } from "App/components/mini-badge";
+import {
+  AbsTable,
   AbsTableBody,
   AbsTableBodyCell,
   AbsTableBodyRow,
   AbsTableHeader,
   AbsTableHeaderCell,
   AbsTableHeaderRow,
-} from "../components/abs-table";
-import { ACTIVITIES_SUBSCRIPTION } from "../graphql/subscriptions";
-import { GET_ACTIVITIES_QUERY } from "../graphql/queries";
-import { truncateHash } from "../utils/hash";
-import MiniBadge from "./MiniBadge";
+} from "App/components/table";
+import { SectionTitle } from "App/components/typography";
+import { GET_ACTIVITIES_QUERY } from "App/graphql/queries";
+import { ACTIVITIES_SUBSCRIPTION } from "App/graphql/subscriptions";
+import { IActivity } from "App/types/global";
+import { truncateHash } from "App/utils/hash";
+import classNames from "classnames";
 import moment from "moment";
-import { BiArrowSVG, ExternalLinkSVG } from "../components/icons/svgs";
-import { SectionTitle } from "../components/typography";
 
 function TableSkeletonLoader() {
   return [1, 2, 3, 4, 5, 6].map((v) => {
@@ -60,7 +61,7 @@ export default function Activities() {
   const [activities, setActivities] = useState([]);
   const [updatedActivityHashes, setUpdatedActivityHashes] = useState([]);
 
-  const { data: initialData } = useQuery(GET_ACTIVITIES_QUERY, {
+  useQuery(GET_ACTIVITIES_QUERY, {
     onCompleted: (data) => {
       setActivities(data.logs);
     },

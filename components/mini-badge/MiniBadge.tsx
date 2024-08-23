@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { IMiniBadge } from "../types/global";
+import { IMiniBadge } from "App/types/global";
 import classNames from "classnames";
 
 export default function MiniBadge({ children, type, pointer }: IMiniBadge) {

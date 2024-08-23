@@ -1,9 +1,9 @@
 "use client";
 
+import { communityBadges } from "App/constants/badges";
+import { IBadge } from "App/types/global";
 import classNames from "classnames";
-import { communityBadges } from "../constants/badges";
 import { SingleBadge } from "./SingleBadge";
-import { IBadge } from "../types/global";
 
 export default function CommunityBadges() {
   return (

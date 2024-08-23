@@ -1,6 +1,5 @@
+import { IAbsTableProps } from "App/types/global";
 import classNames from "classnames";
-import React from "react";
-import { IAbsTableProps } from "../../types/global";
 
 export default function AbsTable({ children, optionalClass }: IAbsTableProps) {
   const tableClass = classNames("min-w-full w-full border-collapse", optionalClass);

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Footer from "App/components/footer";
+import Navbar from "App/components/navbar";
 
 import classNames from "classnames";
 
 import { ApolloWrapper } from "./ApolloWrapper";
 
-import "./globals.scss";
+import "App/styles/globals.scss";
 
 export const metadata: Metadata = {
   title: "Absinthe Dashboard",

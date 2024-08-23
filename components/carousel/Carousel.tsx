@@ -1,10 +1,10 @@
 "use client";
 
+import { AbsButton } from "App/components/button";
+import { ChevronLeft, ChevronRight } from "App/components/icons";
+import { ICarousel } from "App/types/global";
 import classNames from "classnames";
-import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "../icons/svgs";
-import { AbsButton } from "../button";
-import { ICarousel } from "../../types/global";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const Carousel = ({ items, itemRenderer, showDetail = false, detailRenderer }: ICarousel) => {
   const [currentIndex, setCurrentIndex] = useState(0);

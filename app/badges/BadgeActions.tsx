@@ -1,8 +1,8 @@
 "use client";
 
+import { MiniBadge } from "App/components/mini-badge";
+import { IBadgeAction, IBadgeActionsProps } from "App/types/global";
 import classNames from "classnames";
-import { IBadgeAction, IBadgeActionsProps } from "../types/global";
-import MiniBadge from "./MiniBadge";
 import { useMemo } from "react";
 import { SingleAction } from "./SingleAction";
 

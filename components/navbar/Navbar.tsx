@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
-import AppLogo from "../app-logo";
+import { AppLogo } from "App/components/logo";
 import classNames from "classnames";
+import { useMemo } from "react";
 import NavLink from "./NavLink";
 
 export default function Navbar() {

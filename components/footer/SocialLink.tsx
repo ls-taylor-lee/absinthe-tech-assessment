@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import React from "react";
 
 export default function SocialLink({ src, srcDark }) {
   return (

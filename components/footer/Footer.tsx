@@ -1,16 +1,15 @@
+import { AppLogo } from "App/components/logo";
 import classNames from "classnames";
-import React from "react";
-import SocialLink from "./SocialLink";
-import PoweredByMark from "./PoweredByMark";
-import Logo from "../app-logo";
 import Link from "next/link";
+import PoweredByMark from "./PoweredByMark";
+import SocialLink from "./SocialLink";
 
 export default function Footer() {
   const SocialLinks = () => {
     return (
       <div className={classNames("w-full h-fit", "flex lg:absolute lg:pl-28 justify-between")}>
         <div className={classNames("lg:hidden")}>
-          <Logo />
+          <AppLogo />
         </div>
         <div className={classNames("flex space-x-2")}>
           <SocialLink src="/images/github-mark.svg" srcDark="/images/github-mark-dark.svg" />
