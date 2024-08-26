@@ -1,25 +1,27 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useQuery, useSubscription } from "@apollo/client";
-import { IActivity } from "../types/global";
-import classNames from "classnames";
-import AbsTable, {
+import { BiArrowSVG, ExternalLinkSVG } from "App/components/icons";
+import { MiniBadge } from "App/components/mini-badge";
+import {
+  AbsTable,
   AbsTableBody,
   AbsTableBodyCell,
   AbsTableBodyRow,
   AbsTableHeader,
   AbsTableHeaderCell,
   AbsTableHeaderRow,
-} from "../components/abs-table";
-import { ACTIVITIES_SUBSCRIPTION } from "../graphql/subscriptions";
-import { GET_ACTIVITIES_QUERY } from "../graphql/queries";
-import { truncateHash } from "../utils/hash";
-import MiniBadge from "./MiniBadge";
+} from "App/components/table";
+import { useToast } from "App/components/toast";
+import { SectionTitle } from "App/components/typography";
+import { GET_ACTIVITIES_QUERY } from "App/graphql/queries";
+import { ACTIVITIES_SUBSCRIPTION } from "App/graphql/subscriptions";
+import { IActivity } from "App/types/global";
+import { truncateHash } from "App/utils/hash";
+import classNames from "classnames";
 import moment from "moment";
-import { BiArrowSVG, ExternalLinkSVG } from "../components/icons/svgs";
-import { SectionTitle } from "../components/typography";
 
 function TableSkeletonLoader() {
   return [1, 2, 3, 4, 5, 6].map((v) => {
@@ -57,10 +59,11 @@ function TableSkeletonLoader() {
 }
 
 export default function Activities() {
+  const { showToast } = useToast();
   const [activities, setActivities] = useState([]);
   const [updatedActivityHashes, setUpdatedActivityHashes] = useState([]);
 
-  const { data: initialData } = useQuery(GET_ACTIVITIES_QUERY, {
+  useQuery(GET_ACTIVITIES_QUERY, {
     onCompleted: (data) => {
       setActivities(data.logs);
     },
@@ -93,6 +96,17 @@ export default function Activities() {
       }, 3000); // Adjust the delay as needed
     }
   }, [subscriptionData]);
+
+  const handleCopy = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        showToast({ message: "Copied!", duration: 1000, variant: "success" });
+      })
+      .catch((_) => {
+        showToast({ message: "Failed to copy!", duration: 1000, variant: "fail" });
+      });
+  };
 
   const List = () => {
     if (error) return <p>Error: {error.message}</p>;
@@ -138,7 +152,7 @@ export default function Activities() {
                   <AbsTableBodyCell optionalClass="text-secondary dark:text-secondary-dark">
                     <div className="flex items-center justify-between w-36">
                       <span>{truncateHash(activity.transaction_hash)}</span>
-                      <MiniBadge type="secondary" pointer>
+                      <MiniBadge type="secondary" pointer onClick={() => handleCopy(activity.transaction_hash)}>
                         Copy
                       </MiniBadge>
                     </div>

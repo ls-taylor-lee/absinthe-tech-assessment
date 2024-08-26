@@ -1,6 +1,6 @@
+import { MiniBadge } from "App/components/mini-badge";
+import { ISingleActionProps } from "App/types/global";
 import classNames from "classnames";
-import { ISingleActionProps } from "../types/global";
-import MiniBadge from "./MiniBadge";
 
 export function SingleAction({ action }: ISingleActionProps) {
   return (

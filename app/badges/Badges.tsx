@@ -1,16 +1,16 @@
 "use client";
 
-import Carousel from "../components/carousel";
-import { SectionTitle } from "../components/typography";
-import { achieveBadges } from "../constants/badges";
-import { IBadge } from "../types/global";
+import Carousel from "App/components/carousel";
+import { SectionTitle } from "App/components/typography";
+import { achieveBadges } from "App/constants/badges";
+import { IBadge } from "App/types/global";
 import BadgeActions from "./BadgeActions";
 import CommunityBadges from "./CommunityBadges";
 import { SingleBadge } from "./SingleBadge";
 
 export default function Badges() {
   const badgeRenderer = (item: IBadge, active) => {
-    return <SingleBadge badge={item} showDetail isActive={active} />;
+    return <SingleBadge badge={item} showDetail markComplete isActive={active} />;
   };
 
   const detailRenderer = (item: IBadge) => {

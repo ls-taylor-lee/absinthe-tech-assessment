@@ -1,8 +1,8 @@
 "use client";
 
+import { MiniBadge } from "App/components/mini-badge";
+import { IBadgeAction, IBadgeActionsProps } from "App/types/global";
 import classNames from "classnames";
-import { IBadgeAction, IBadgeActionsProps } from "../types/global";
-import MiniBadge from "./MiniBadge";
 import { useMemo } from "react";
 import { SingleAction } from "./SingleAction";
 
@@ -17,7 +17,7 @@ export default function BadgeActions({ badge }: IBadgeActionsProps) {
         <span>
           <span
             className={classNames(
-              "font-semibold text-sm",
+              "font-semibold text-sm mr-1",
               "lg:text-primary lg:dark:text-primary-dark",
               "text-secondary dark:text-secondary-dark"
             )}

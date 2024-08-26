@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-
 import classNames from "classnames";
 
-import { ApolloWrapper } from "./ApolloWrapper";
+import { ApolloWrapper } from "App/providers/ApolloWrapper";
 
-import "./globals.scss";
+import Footer from "App/components/footer";
+import Navbar from "App/components/navbar";
+import { ToastProvider } from "App/components/toast";
+import DarkModeProvider from "App/providers/DarkModeProvider";
+import "App/styles/globals.scss";
 
 export const metadata: Metadata = {
   title: "Absinthe Dashboard",
@@ -22,18 +23,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 
   return (
-    <html lang="en" className="dark dark:custom-scrollbar-dark custom-scrollbar">
-      <ApolloWrapper>
-        <body>
-          <main>
-            <section className={bodyClass}>
-              <Navbar />
-              <div className="flex-grow px-8 lg:px-28 py-8">{children}</div>
-              <Footer />
-            </section>
-          </main>
-        </body>
-      </ApolloWrapper>
+    <html lang="en" className={classNames("dark:custom-scrollbar-dark custom-scrollbar")}>
+      <body>
+        <ApolloWrapper>
+          <ToastProvider>
+            <DarkModeProvider>
+              <main>
+                <section className={bodyClass}>
+                  <Navbar />
+                  <div className="flex-grow px-8 lg:px-28 py-8">{children}</div>
+                  <Footer />
+                </section>
+              </main>
+            </DarkModeProvider>
+          </ToastProvider>
+        </ApolloWrapper>
+      </body>
     </html>
   );
 }

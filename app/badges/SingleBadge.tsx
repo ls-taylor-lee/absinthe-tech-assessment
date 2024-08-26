@@ -1,6 +1,5 @@
+import { ISingleBadgeProps } from "App/types/global";
 import classNames from "classnames";
-import { ISingleBadgeProps } from "../types/global";
-import { useMemo } from "react";
 
 export function SingleBadge({
   badge,
